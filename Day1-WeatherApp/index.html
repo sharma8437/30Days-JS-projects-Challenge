@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter city name..." spellcheck="false">
+            <button><img src="https://static.vecteezy.com/system/resources/thumbnails/014/440/989/small/search-black-shadow-icon-socialicon-set-png.png" alt="Search"></button>
+        </div>
+
+        <div class="error">
+            <p>Invaild city name !</p>
+        </div>
+        <div class="weather">
+            <img src="https://png.pngtree.com/png-clipart/20220909/original/pngtree-cloud-and-sun-type-of-weather-png-image_8500172.png" alt="" class="weather-icon">
+            <h1 class="temp">12°C</h1>
+            <h2 class="city">Chandigarh</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvHYQg4N4F9yh-Ahz-7IpP6-7BBmVvZQf-Ww&s" alt="Humidity">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtNjA0LWVsZW1lbnQtMDkwNy5wbmc.png" alt="Wind">
+                    <div>
+                        <p class="wind">15 km/h</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+  const apiKey = "17a50bca510a04d5e3c285640b5cef2f";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+const searchBox = document.querySelector(".search input");
+const searchBtn = document.querySelector(".search button");
+const weatherIcon = document.querySelector(".weather-icon");
+const errorDiv = document.querySelector(".error");
+
+async function checkWeather(city) {
+    try {
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+        const data = await response.json();
+
+        if (data.cod === 200) {
+            // Update Weather Details
+            document.querySelector(".city").innerHTML = data.name;
+            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+            document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
+            document.querySelector(".wind").innerHTML = data.wind.speed + " Km/h";
+
+            // Update Weather Icon
+            switch (data.weather[0].main.toLowerCase()) {
+                case "clouds":
+                    weatherIcon.src = "https://png.pngtree.com/png-clipart/20220909/original/pngtree-cloud-and-sun-type-of-weather-png-image_8500172.png";
+                    break;
+                case "clear":
+                    weatherIcon.src = "https://static-00.iconduck.com/assets.00/weather-clear-symbolic-icon-2048x2048-v4afvu7m.png";
+                    break;
+                case "rain":
+                    weatherIcon.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMYb1tibpNy8-dfpRURHzzqipLqRPcrL0JyA&s";
+                    break;
+                case "drizzle":
+                    weatherIcon.src = "https://img.freepik.com/premium-psd/3d-weather-icon-day-with-rain-png-2_1182830-564.jpg";
+                    break;
+                case "mist":
+                    weatherIcon.src = "https://cdn-icons-png.flaticon.com/512/1197/1197102.png";
+                    break;
+                default:
+                    weatherIcon.src = "https://cdn-icons-png.flaticon.com/512/1146/1146869.png"; // Default weather icon
+                    break;
+            }
+
+            // Hide Error Message
+            errorDiv.style.display = "none";
+        } else if (data.cod === "404") {
+            // Show Error Message
+            errorDiv.style.display = "block";
+            errorDiv.querySelector("p").innerHTML = "Invalid city name!";
+        }
+    } catch (error) {
+        console.error("Error fetching weather data:", error);
+    }
+}
+
+    // Default Weather Details for Chandigarh on Page Load
+    window.onload = () => {
+        checkWeather("Chandigarh");
+    };
+
+    searchBtn.addEventListener("click", ()=>{
+    checkWeather(searchBox.value);
+    searchBox.value="";
+})
+</script>
+</html>

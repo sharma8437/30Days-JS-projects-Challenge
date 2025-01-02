@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Grande', 'Verdana', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #201f1f, #2a2828);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 85%;
+    max-width: 400px;
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    color: #fff;
+    border-radius: 20px;
+    padding: 25px 40px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    background: #fff;
+    color: #555;
+    padding: 12px 20px;
+    height: 50px;
+    border-radius: 25px;
+    flex: 1;
+    margin-right: 12px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.search input:focus {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search button {
+    border: 0;
+    outline: 0;
+    background: linear-gradient(135deg, #c8d5cc, #23648f);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.search button:hover {
+    transform: scale(1.1);
+}
+
+.search button img {
+    width: 20px;
+}
+
+.weather-icon {
+    width: 150px;
+    margin-top: 25px;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.weather h1 {
+    font-size: 55px;
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.weather h2 {
+    font-size: 26px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-top: 30px;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 40px;
+    margin-right: 12px;
+}
+
+.humidity, .wind {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.error {
+    display: none;
+    color: #f9f3f3;
+    font-size: 36px;
+    margin-top: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
