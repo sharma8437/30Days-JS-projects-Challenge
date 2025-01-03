@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <h2>To-Do List
+                <img src="https://cdn-icons-png.flaticon.com/512/6194/6194029.png" alt="" >      </h2>
+                <div class="row">
+                    <input type="text" id="input-box" placeholder="Add your task..">
+                    <button onclick="addTask()">Add</button>
+                </div>
+                <ul id="list-container">
+
+                </ul>
+      
+        </div>
+        
+    </div>
+
+
+    
+</body>
+
+
+<script>
+    const inputBox = document.getElementById("input-box");
+    const listContainer = document.getElementById("list-container");
+
+    function addTask() {
+        if (inputBox.value === '') {
+            alert("You must write something!");
+        } else {
+            let li = document.createElement("li");
+            li.innerHTML = inputBox.value;
+            let span = document.createElement("span");
+            span.innerHTML = "\u00d7"; 
+            li.appendChild(span);
+            listContainer.appendChild(li);
+            inputBox.value = ''; 
+            saveData(); // Save the updated list to localStorage
+        }
+    }
+
+    listContainer.addEventListener("click", function (e) {
+        if (e.target.tagName === "LI") {
+            e.target.classList.toggle("checked"); 
+            saveData();
+        } else if (e.target.tagName === "SPAN") {
+            e.target.parentElement.remove(); 
+            saveData();
+        }
+    });
+
+    function saveData() {
+        localStorage.setItem("data", listContainer.innerHTML); // Save the list's HTML
+    }
+
+    function showList() {
+        const storedData = localStorage.getItem("data");
+        if (storedData) {
+            listContainer.innerHTML = storedData;
+        }
+    }
+
+   
+    showList();
+</script>
+
+</html>
