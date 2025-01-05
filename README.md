@@ -12,6 +12,17 @@ A dynamic weather application that fetches real-time weather data using a public
 A clean and interactive to-do list app with features like adding, marking as completed, and deleting tasks.
 Local Storage: Keeping tasks saved even after refreshing the page.
 
+
+### Day 3: Random Password Generator
+Today, I built a simple Random Password Generator using JavaScript! This tool creates secure passwords with a mix of:
+- Uppercase and lowercase letters
+- Numbers
+- Special characters
+
+### Day 4: Notes App
+
+Today, I built a simple yet interactive Notes App using JavaScript! 📝 This tool helps users create, view, and delete notes effortlessly.
+
 ---
 
 Stay tuned for daily updates as I progress through this challenge! Feel free to connect with me on LinkedIn to see detailed posts about each project.
