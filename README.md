@@ -23,6 +23,12 @@ Today, I built a simple Random Password Generator using JavaScript! This tool cr
 
 Today, I built a simple yet interactive Notes App using JavaScript! 📝 This tool helps users create, view, and delete notes effortlessly.
 
+### Day 5: Quotes App
+
+Today, I built a Quotes App using JavaScript! 🖋️✨ This app fetches and displays motivational quotes to brighten your day, powered by a free API.
+
+- api:- "http://api.quotable.io/random"
+
 ---
 
 Stay tuned for daily updates as I progress through this challenge! Feel free to connect with me on LinkedIn to see detailed posts about each project.
