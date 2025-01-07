@@ -29,6 +29,11 @@ Today, I built a Quotes App using JavaScript! 🖋️✨ This app fetches and di
 
 - api:- "http://api.quotable.io/random"
 
+
+### Day 5: Age Calculator 
+
+Today, I built an Age Calculator App using JavaScript! 🧑‍💻 This app calculates your age in years, months, and days based on your date of birth, all in a simple and interactive UI.
+
 ---
 
 Stay tuned for daily updates as I progress through this challenge! Feel free to connect with me on LinkedIn to see detailed posts about each project.
