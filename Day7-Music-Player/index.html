@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome Library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="music-player">
+        <nav>
+          <div class="circle">
+            <i class="fa-solid fa-angle-left"></i>
+          </div>
+          <div class="circle">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </nav>
+
+        <img src="media/payal.jpg" alt="Song" class="song-img" id="songImg" />
+        <h1 id="songTitle">Payal Song</h1>
+        <p id="songArtist">Yo Yo Honey Singh</p>
+
+        <audio id="song">
+          <source src="media/payal.mp3" type="audio/mpeg" />
+        </audio>
+
+        <input type="range" value="0" id="progress" />
+
+        <div class="controls">
+          <div onclick="prevSong()"><i class="fa-solid fa-backward"></i></div>
+          <div onclick="playPause()">
+            <i class="fa-solid fa-play" id="controlIcon"></i>
+          </div>
+          <div onclick="nextSong()"><i class="fa-solid fa-forward"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+
+
+      const progress = document.getElementById("progress");
+      const song = document.getElementById("song");
+      const controlIcon = document.getElementById("controlIcon");
+
+
+
+      // // Play/Pause functionality
+      function playPause() {
+        if (!song.paused) {
+          // If song is playing
+          song.pause();
+          controlIcon.classList.remove("fa-pause");
+          controlIcon.classList.add("fa-play");
+        } else {
+
+          // If song is paused
+          song.play();
+          controlIcon.classList.remove("fa-play");
+          controlIcon.classList.add("fa-pause");
+        }
+      }
+
+      // Update progress bar while playing
+      song.addEventListener("timeupdate", () => {
+        progress.value = song.currentTime;
+      });
+
+      // Sync progress bar and song position
+      progress.addEventListener("change", () => {
+        song.currentTime = progress.value;
+      });
+
+      // Load metadata and set progress bar max value
+      song.addEventListener("loadedmetadata", () => {
+        progress.max = song.duration;
+      });
+
+      // Additional features for next and previous songs
+      const songs = [
+        {
+          title: "Payal Song",
+          artist: "Yo Yo Honey Singh",
+          src: "media/payal.mp3",
+          img: "media/payal.jpg",
+        },
+        {
+          title: "Russian Bandana",
+          artist: "Dhanda Nyoliwala",
+          src: "media/RussianBadana.mp3",
+          img: "https://i.ytimg.com/vi/1OAjeECW90E/maxresdefault.jpg",
+        },
+        {
+          title: "Don",
+          artist: "Diljit Dosanjh",
+          src: "media/don.mp3",
+          img: "https://i.ytimg.com/vi/a8HeAvHBmzk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCPNfpm8JB7Mw5_4QnnJyw_7muaew",
+        },
+        {
+          title: "WAVY",
+          artist: "karan aujla",
+          src: "media/wavy.mp3",
+          img: "https://i.ytimg.com/vi/MTuB1RbTXwg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCQrdenqEiDAsirrR1Wp_FunqQOWA",
+        },
+      ];
+      
+      let currentIndex = 0;
+
+      function loadSong(index) {
+        const songData = songs[index];
+        song.src = songData.src;
+        document.getElementById("songImg").src = songData.img;
+        document.getElementById("songTitle").textContent = songData.title;
+        document.getElementById("songArtist").textContent = songData.artist;
+        song.play();
+        controlIcon.classList.remove("fa-play");
+        controlIcon.classList.add("fa-pause");
+      }
+
+      function nextSong() {
+        currentIndex = (currentIndex + 1) % songs.length;
+        loadSong(currentIndex);
+      }
+
+      function prevSong() {
+        currentIndex = (currentIndex - 1 + songs.length) % songs.length;
+        loadSong(currentIndex);
+      }
+    </script>
+  </body>
+</html>

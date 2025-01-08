@@ -34,6 +34,17 @@ Today, I built a Quotes App using JavaScript! 🖋️✨ This app fetches and di
 
 Today, I built an Age Calculator App using JavaScript! 🧑‍💻 This app calculates your age in years, months, and days based on your date of birth, all in a simple and interactive UI.
 
+
+### Day 7: Music Player
+
+Today, I created a Music Player App using JavaScript! 🎶 This interactive app allows you to play your favorite songs with the ability to control playback, skip to the next or previous song, and adjust the progress bar, all within a sleek, user-friendly design.
+
+- ✨ Features:
+
+- Play, pause, and skip songs.
+- Display song information like title, artist, and album image.
+- Responsive progress bar to track song time.
+
 ---
 
 Stay tuned for daily updates as I progress through this challenge! Feel free to connect with me on LinkedIn to see detailed posts about each project.
