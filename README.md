@@ -45,6 +45,13 @@ Today, I created a Music Player App using JavaScript! 🎶 This interactive app 
 - Display song information like title, artist, and album image.
 - Responsive progress bar to track song time.
 
+### Day 8: QR Code Generator 
+
+Today, I built a QR Code Generator using JavaScript! 🎯  Generate QR codes instantly by entering text or URLs.
+ 
+
+
+
 ---
 
 Stay tuned for daily updates as I progress through this challenge! Feel free to connect with me on LinkedIn to see detailed posts about each project.
