@@ -49,8 +49,10 @@ Today, I created a Music Player App using JavaScript! 🎶 This interactive app 
 
 Today, I built a QR Code Generator using JavaScript! 🎯  Generate QR codes instantly by entering text or URLs.
  
+### Day 9: popup Box
 
-
+Popup Box using JavaScript.
+This project focuses on implementing popups that appear on user interaction—perfect for beginners looking to improve their UI skills and make websites more engaging.
 
 ---
 
