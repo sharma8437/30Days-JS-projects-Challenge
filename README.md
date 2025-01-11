@@ -54,6 +54,10 @@ Today, I built a QR Code Generator using JavaScript! 🎯  Generate QR codes ins
 Popup Box using JavaScript.
 This project focuses on implementing popups that appear on user interaction—perfect for beginners looking to improve their UI skills and make websites more engaging.
 
+### Day 10: Select Box
+
+simple yet interactive Popup Box using JavaScript. 🚀
+
 ---
 
 Stay tuned for daily updates as I progress through this challenge! Feel free to connect with me on LinkedIn to see detailed posts about each project.
