@@ -58,10 +58,15 @@ This project focuses on implementing popups that appear on user interaction—pe
 
 simple yet interactive Popup Box using JavaScript. 🚀
 
-### Day 10: Mini Calendar
+### Day 11: Mini Calendar
 
 Today, I created a Mini Calendar using HTML, CSS, and JavaScript! 📆🚀
 This project displays the current date, day, month, and year, styled beautifully to create a modern and interactive design.
+
+### Day 12: Stop-Watch
+
+### Day 13: Drag and Drop
+
 
 ---
 

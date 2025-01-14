@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drag and drop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  
+        <div class="container">
+            
+<div>
+
+
+    <h3>Drag & Drop</h3>
+    <div id="left">
+        <div class="list" draggable="true">
+            <img src="https://t4.ftcdn.net/jpg/08/54/23/49/360_F_854234982_cz43LIiyek3wGTqcyjYkCtJ19qTX6kWz.jpg" alt="">List Item 1
+        </div>
+
+        <div class="list" draggable="true">
+            <img src="https://t4.ftcdn.net/jpg/08/54/23/49/360_F_854234982_cz43LIiyek3wGTqcyjYkCtJ19qTX6kWz.jpg" alt="">List Item 2
+        </div>
+
+        <div class="list" draggable="true">
+            <img src="https://t4.ftcdn.net/jpg/08/54/23/49/360_F_854234982_cz43LIiyek3wGTqcyjYkCtJ19qTX6kWz.jpg" alt="">List Item 3
+        </div>
+
+        <div class="list" draggable="true">
+            <img src="https://t4.ftcdn.net/jpg/08/54/23/49/360_F_854234982_cz43LIiyek3wGTqcyjYkCtJ19qTX6kWz.jpg" alt="">List Item 4
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <h3>Drag & Drop</h3>
+    <div id="right"></div>
+</div>
+
+
+   </div>
+
+
+
+   <script>
+
+let lists = document.getElementsByClassName('list');
+let rightBox = document.getElementById('right');
+let leftBox = document.getElementById('left');
+
+for(list of lists){
+
+    list.addEventListener("dragstart", function(e){
+        let selected = e.target;
+
+        rightBox.addEventListener('dragover', function(e){
+            e.preventDefault();
+        })
+        rightBox.addEventListener('drop', function(e){
+            rightBox.appendChild(selected);
+            selected = null;
+        })
+
+        leftBox.addEventListener('dragover', function(e){
+            e.preventDefault();
+        })
+        leftBox.addEventListener('drop', function(e){
+            leftBox.appendChild(selected);
+            selected = null;
+        })
+    })
+}
+
+   </script>
+
+    
+</body>
+</html>

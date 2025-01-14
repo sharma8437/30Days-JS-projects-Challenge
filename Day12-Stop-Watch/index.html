@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="timer">
+            <input type="text" id="h" value="00" readonly>
+            <span>:</span>
+            <input type="text" id="m" value="00" readonly>
+            <span>:</span>
+            <input type="text" id="s" value="00" readonly>
+        </div>
+        <div class="button">
+            <button class="btn" onclick="start()">Start</button>
+            <button class="btn" onclick="stop()">Stop</button>
+            <button class="btn" onclick="reset()">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let timerInterval;
+        let seconds = 0;
+        let minutes = 0;
+        let hours = 0;
+
+        function start() {
+            if (!timerInterval) {
+                timerInterval = setInterval(updateTimer, 1000); 
+            }
+        }
+
+        function updateTimer() {
+            seconds++;
+            if (seconds === 60) {
+                seconds = 0;
+                minutes++;
+            }
+            if (minutes === 60) {
+                minutes = 0;
+                hours++;
+            }
+
+        
+            document.getElementById("s").value = formatTime(seconds);
+            document.getElementById("m").value = formatTime(minutes);
+            document.getElementById("h").value = formatTime(hours);
+        }
+
+        function stop() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        function reset() {
+            stop();
+            seconds = 0;
+            minutes = 0;
+            hours = 0;
+            document.getElementById("s").value = "00";
+            document.getElementById("m").value = "00";
+            document.getElementById("h").value = "00";
+        }
+
+        function formatTime(time) {
+            return time < 10 ? `0${time}` : time;
+        }
+    </script>
+</body>
+</html>
