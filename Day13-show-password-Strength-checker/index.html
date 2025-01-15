@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Password Strength</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Password Strength Checker</h1>
+        <div class="input-box">
+            <div class="input-wrapper">
+                <input id="password" type="password" class="input-field" placeholder="Enter your password">
+                <button type="button" id="toggle-pass" class="toggle-button">
+                    <img src="https://cdn-icons-png.flaticon.com/512/709/709612.png" alt="Show Password">
+                </button>
+            </div>
+            <p id="message">Password strength: <span id="strength"></span></p>
+        </div>
+    </div>
+    
+    <script>
+        const pass = document.getElementById('password');
+        const msg = document.getElementById('message');
+        const str = document.getElementById('strength');
+        const togglePass = document.getElementById('toggle-pass');
+
+        pass.addEventListener('input', () => {
+            if (pass.value.length > 0) {
+                msg.style.display = "block";
+            } else {
+                msg.style.display = "none";
+            }
+
+            if (pass.value.length < 4) {
+                str.innerHTML = "Weak";
+                msg.className = "weak";
+            } else if (pass.value.length >= 4 && pass.value.length < 8) {
+                str.innerHTML = "Medium";
+                msg.className = "medium";
+            } else if (pass.value.length >= 8) {
+                str.innerHTML = "Strong";
+                msg.className = "strong";
+            }
+        });
+
+        togglePass.addEventListener('click', () => {
+            if (pass.type === "password") {
+                pass.type = "text";
+                togglePass.querySelector('img').src = "https://cdn-icons-png.flaticon.com/512/709/709769.png"; // Eye icon for visible
+            } else {
+                pass.type = "password";
+                togglePass.querySelector('img').src = "https://cdn-icons-png.flaticon.com/512/709/709612.png"; // Eye icon for hidden
+            }
+        });
+    </script>
+
+</body>
+</html>

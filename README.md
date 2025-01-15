@@ -68,6 +68,9 @@ This project displays the current date, day, month, and year, styled beautifully
 ### Day 13: Drag and Drop
 
 
+### Day 13: Password Strength Checker
+
+
 ---
 
 Stay tuned for daily updates as I progress through this challenge! Feel free to connect with me on LinkedIn to see detailed posts about each project.

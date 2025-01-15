@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #5e1aa7, #0d0e0e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+.container {
+    background: #f8f6f6;
+    border-radius: 15px;
+    padding: 30px 25px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.container h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: #6a11cb;
+    box-shadow: 0 0 8px rgba(106, 17, 203, 0.5);
+}
+
+.input-field {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.toggle-button img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-button:hover img {
+    transform: scale(1.1);
+}
+
+#message {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left;
+    display: none;
+}
+
+#strength {
+    font-weight: bold;
+}
+
+/* Color feedback for password strength */
+#message.weak {
+    color: #ff5f57;
+}
+
+#message.medium {
+    color: #f4d03f;
+}
+
+#message.strong {
+    color: #26d730;
+}
