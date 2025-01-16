@@ -70,6 +70,9 @@ This project displays the current date, day, month, and year, styled beautifully
 
 ### Day 14: Password Strength Checker
 
+### Day 15: Digital watch
+
+
 
 ---
 
