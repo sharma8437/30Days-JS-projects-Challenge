@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+  <div class="container">
+    <h1>BMI Calculator</h1>
+    <input type="number" id="weight" placeholder="Enter your weight (kg)" />
+    <div class="input-container">
+      <input type="number" id="feet" placeholder="Feet" />
+      <input type="number" id="inches" placeholder="Inches" />
+    </div>
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <div class="result" id="resultDisplay"></div>
+  </div>
+
+  <script>
+    function calculateBMI() {
+      const weight = parseFloat(document.getElementById('weight').value);
+      const feet = parseFloat(document.getElementById('feet').value);
+      const inches = parseFloat(document.getElementById('inches').value);
+
+      if (isNaN(weight) || isNaN(feet) || isNaN(inches) || weight <= 0 || feet < 0 || inches < 0) {
+        document.getElementById('resultDisplay').innerText = 'Please enter valid weight, feet, and inches.';
+        document.getElementById('resultDisplay').className = 'result';
+        return;
+      }
+
+    
+      const heightInMeters = ((feet * 12) + inches) * 0.0254;
+
+     
+      const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+
+      let result = '';
+      let resultClass = '';
+
+      if (bmi < 18.5) {
+        result = `Underweight: ${bmi}`;
+        resultClass = 'underweight';
+      } else if (bmi >= 18.5 && bmi < 24.9) {
+        result = `Normal weight: ${bmi}`;
+        resultClass = 'normal';
+      } else if (bmi >= 25 && bmi < 29.9) {
+        result = `Overweight: ${bmi}`;
+        resultClass = 'overweight';
+      } else {
+        result = `Obesity: ${bmi}`;
+        resultClass = 'obesity';
+      }
+
+      document.getElementById('resultDisplay').innerText = result;
+      document.getElementById('resultDisplay').className = 'result ' + resultClass;
+    }
+  </script>
+
+</body>
+</html>
