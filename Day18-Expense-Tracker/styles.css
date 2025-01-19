@@ -1,0 +1,134 @@
+
+*{
+    padding: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #363e3d, #ACB6E5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+ 
+  overflow: hidden;
+}
+
+.container {
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  box-sizing: border-box;
+  animation: slideIn 0.5s ease-out;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.input-group input, .input-group select {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus, .input-group select:focus {
+  border: 1px solid #6C5B7B;
+  outline: none;
+  box-shadow: 0 0 10px rgba(108, 91, 123, 0.5);
+}
+
+button {
+  padding: 12px;
+  background-color: #6C5B7B;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #3B2A40;
+  transform: scale(1.05);
+}
+
+.expense-list {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+  color: #333;
+}
+
+.expense-item span {
+  font-weight: 500;
+}
+
+.expense-amount {
+  color: #4CAF50;
+}
+
+.expense-category {
+  color: #6C5B7B;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.total-expense {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #3B2A40;
+  text-align: center;
+}

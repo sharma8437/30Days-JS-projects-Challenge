@@ -74,6 +74,10 @@ This project displays the current date, day, month, and year, styled beautifully
 
 ### Day 16 : BMI Calculator
 
+### Day 17 : Currency Converter 
+
+### Day 18 : Expense Tracker
+
 
 
 ---
