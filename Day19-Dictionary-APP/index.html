@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary APP</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dictionary</h1>
+        <div class="input-search">
+            <input type="text" id="input" placeholder="Enter a word...">
+            <button id="search">Search</button>
+        </div>
+        <div class="output">
+            <p id="meaning">Meaning will be displayed here...</p>
+        </div>
+    </div>
+
+    <script>
+        const input = document.querySelector('#input');
+        const output = document.querySelector('#meaning');
+        const search = document.querySelector('#search');
+
+        search.addEventListener('click', async () => {
+            const val = input.value.trim();
+            if (val === "") {
+                alert("Please enter a word");
+            } else {
+                try {
+                    const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${val}`;
+                    let response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error("Word not found");
+                    }
+                    let data = await response.json();
+                    const definition = data[0]?.meanings[0]?.definitions[0]?.definition || "No definition available.";
+                    output.textContent = definition;
+                } catch (error) {
+                    output.textContent = error.message;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -78,6 +78,8 @@ This project displays the current date, day, month, and year, styled beautifully
 
 ### Day 18 : Expense Tracker
 
+### Day 19 : Dictionary APP
+
 
 
 ---
